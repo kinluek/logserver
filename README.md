@@ -15,9 +15,9 @@ To install with homebrew, use the following command:
 
 ## Setup
 
-once docker is installed, just run the make command:
+once docker is installed, make sure it is actually running, then just run the make command:
 
-`make run`
+`make run` (in the root of the logserver project)
 
 This will spin up four containers, one for the Go server, logstash, elastic search and kibana.
 

@@ -15,7 +15,9 @@ To install with homebrew, use the following command:
 
 ## Setup
 
-once docker is installed, make sure it is actually running, then just run the make command:
+Once docker is installed, make sure the docker daemon is actually running and also make sure no other applications are listening on the ports specified in the docker-compose.yml, or the run will fail.
+
+Then just run the make command:
 
 `make run` (in the root of the logserver project)
 

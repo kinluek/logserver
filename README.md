@@ -21,6 +21,8 @@ once docker is installed, make sure it is actually running, then just run the ma
 
 This will spin up four containers, one for the Go server, logstash, elastic search and kibana.
 
+Note: the first run will require downloads of the images you don't have locally, any runs after that will boot up much faster, if you want to play around with the code.
+
 ## Server Endpoint
 
 ### /getexample

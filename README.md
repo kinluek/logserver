@@ -35,7 +35,7 @@ to test this endpoint, you can simply go to localhost:8080/getexample or curl it
 
 ### /postexample
 
-the easier way to test this endpoint would be to curl it in your terminal:
+the easiest way to test this endpoint would be to curl it in your terminal:
 
 `curl -X POST localhost:8080/postexample -d '{"data": "string message"}'`
 

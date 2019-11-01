@@ -47,6 +47,10 @@ The handler expects a JSON body with a data field. Invalid JSON will cause a 500
 4. Go to the discover tab to see and query your logs.
 5. Hitting the server endpoints will generate logs (you can start hitting the server before you set up the index and they will still show up after)
 
+## Clean Up
+
+after exiting the containers, run `docker system prune`, this will remove any stopped containers to free up resources on your machine.
+
 ## Acknowledgements
 
 -   Nic Jackson for his book, "Building Microservices With Go"

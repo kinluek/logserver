@@ -1,0 +1,49 @@
+version: '2'
+
+services:
+    server:
+        # build will build the image from the dockerfile
+        # found at the specified path. Which will be in
+        # the same directory.
+        build: ./
+        # tags our built image
+        image: server:logging
+        # the command executes main binary on container start up
+        # this starts our go server.
+        command: sh -c '/main'
+        ports:
+            - 8080:8080
+        environment:
+            - 'LOGSTASH=logstash:5000'
+        links:
+            - logstash
+    elasticsearch:
+        # pull image from docker hub
+        image: elasticsearch:2.4.2
+        ports:
+            - 9200:9200
+            - 9300:9300
+        environment:
+            # set heap memory
+            ES_JAVA_OPTS: '-Xms1g -Xmx1g'
+    kibana:
+        # pull image from docker hub
+        image: kibana:4.6.3
+        ports:
+            - 5601:5601
+        environment:
+            - ELASTICSEARCH_URL=http://elasticsearch:9200
+        links:
+            - elasticsearch
+    logstash:
+        # pull image from docker hub
+        image: logstash:5.5.2
+        # specify the configuration file
+        command: -f /etc/logstash/conf.d/logstash.conf
+        ports:
+            - 5000:5000
+        volumes:
+            # mount local conf file onto container
+            - ./logstash.conf:/etc/logstash/conf.d/logstash.conf
+        links:
+            - elasticsearch
